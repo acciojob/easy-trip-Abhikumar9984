@@ -28,7 +28,7 @@ public class AirportRepository {
     public String bookTicket(Integer fightId  , Integer passengerId){
         Flight f  = fDb.get(fightId);
         int max  = f.getMaxCapacity();
-        List<Integer> temp  = tDb.getOrDefault(fightId ,new ArrayList<>());
+        List<Integer> temp  = tDb.getOrDefault(fightId , new ArrayList<>());
         if(temp.size()>max) return "FAILURE";
         if(temp.size()>0) {
             for (Integer i : temp) {
@@ -38,7 +38,6 @@ public class AirportRepository {
         }
         temp.add(passengerId);
         tDb.put(fightId , temp);
-
         return "SUCCESS";
     }
     public String addPassenger(Passenger p){

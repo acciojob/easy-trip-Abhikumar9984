@@ -18,8 +18,8 @@ import java.util.Objects;
 @RestController
 public class AirportController {
 
-    @Autowired
-    private AirportService service;
+
+    private AirportService service = new AirportService();
     @PostMapping("/add_airport")
     public String addAirport(@RequestBody Airport airport){
 
@@ -127,6 +127,4 @@ public class AirportController {
         //And return a "SUCCESS" message if the passenger has been added successfully.
         return service.addpassenger(passenger);
     }
-
-
 }
