@@ -96,7 +96,7 @@ public class AirportRepository {
             if(a.equals(airPortName)){
                 Airport airport  = aDb.get(a);
                 City city  = airport.getCity();
-                for(Integer i : fDb.keySet()){
+                for(Integer i : tDb.keySet()){
                     Flight f = fDb.get(i);
                     if(f.getToCity()==city||f.getFromCity()==city){
                         if(date==f.getFlightDate()) {
