@@ -2,12 +2,12 @@ package com.driver.model;
 
 public enum City {
     ;
-    public  String KANPUR;
-    public String DELHI;
-    public String  CHANDIGARH;
-   public String  BANGLORE;
-   public String JAIPUR;
-   public String KOLKATA;
-   public String  CHENNAI;
+    public static String KANPUR;
+    public static String DELHI;
+    public static String  CHANDIGARH;
+   public static String  BANGLORE;
+   public static String JAIPUR;
+   public static String KOLKATA;
+   public static String  CHENNAI;
 
 }
