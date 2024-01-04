@@ -119,15 +119,17 @@ public class AirportRepository {
 
     public String cancelTicket(Integer fId , Integer pId){
         if(!fDb.containsKey(fId)) return "FAILURE";
-        List<Integer> temp  = tDb.get(fId);
+        List<Integer> temp  = tDb.getOrDefault(fId , new ArrayList<>());
         int s  = -1;
-        for(Integer i:temp){
-            if(i==pId){
-                s  = pId;
-                break;
+        if(temp.size()>0) {
+            for (Integer i : temp) {
+                if (i == pId) {
+                    s = pId;
+                    break;
+                }
             }
+            if (s == -1) return "FAILURE";
         }
-        if(pId==-1) return "FAILURE";
         else{
             temp.remove(pId);
             tDb.put(fId , temp);
