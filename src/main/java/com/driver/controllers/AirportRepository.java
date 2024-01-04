@@ -82,7 +82,7 @@ public class AirportRepository {
             double time  = f.getDuration();
             City fromcity = f.getFromCity();
             City toCity  = f.getToCity();
-            if(fromcity==from && toCity==to){
+            if(fromcity.compareTo(from)==0 && toCity.compareTo(to)==0){
                 if(ans>time)
                     ans  = time;
             }
