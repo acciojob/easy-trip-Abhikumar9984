@@ -99,9 +99,8 @@ public class AirportRepository {
                 for(Integer i : tDb.keySet()){
                     Flight f = fDb.get(i);
                     if(f.getToCity()==city||f.getFromCity()==city){
-                        if(date==f.getFlightDate()) {
-                            int fId  = f.getFlightId();
-                            List<Integer> al  = tDb.get(fId);
+                        if(date.compareTo(f.getFlightDate())==0) {
+                            List<Integer> al  = tDb.get(i);
                             pans += al.size();
                         }
                     }
