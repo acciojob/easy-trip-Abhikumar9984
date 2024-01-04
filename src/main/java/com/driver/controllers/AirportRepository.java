@@ -29,10 +29,12 @@ public class AirportRepository {
         Flight f  = fDb.get(fightId);
         int max  = f.getMaxCapacity();
         List<Integer> temp  = tDb.getOrDefault(fightId ,new ArrayList<>());
-        if(temp.size()==max) return "FAILURE";
-        for(Integer i : temp){
-            if(i==passengerId)
-                return "FAILURE";
+        if(temp.size()>max) return "FAILURE";
+        if(temp.size()>0) {
+            for (Integer i : temp) {
+                if (i == passengerId)
+                    return "FAILURE";
+            }
         }
         temp.add(passengerId);
         tDb.put(fightId , temp);
