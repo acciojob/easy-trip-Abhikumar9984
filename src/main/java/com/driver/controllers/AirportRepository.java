@@ -76,18 +76,18 @@ public class AirportRepository {
     }
 
     public double getShortestTimeTravel(City from ,City to){
-        double ans = 0.0;
+        double ans = Double.MAX_VALUE;
         for(Integer i : fDb.keySet()){
             Flight f  = fDb.get(i);
             double time  = f.getDuration();
             City fromcity = f.getFromCity();
             City toCity  = f.getToCity();
-            if(fromcity.compareTo(from)==0 && toCity.compareTo(to)==0){
+            if(fromcity==from && toCity==to){
                 if(ans>time)
                     ans  = time;
             }
         }
-        return ans==0.0?-1:ans;
+        return ans==Double.MAX_VALUE?-1:ans;
     }
 
     public int getNumberOfPeopleHavingFight(Date date , String airPortName){
